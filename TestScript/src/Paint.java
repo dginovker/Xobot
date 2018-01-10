@@ -1,4 +1,5 @@
 import xobot.script.methods.tabs.Skills;
+import xobot.script.util.Timer;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -16,6 +17,11 @@ public class Paint {
     private Image img1;
     private final RenderingHints antialiasing = new RenderingHints(
             RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+    private int startxp;
+    private int crafted;
+    private Timer t;
+    private String status;
 
     public Paint()
     {
