@@ -1,4 +1,6 @@
-package GUI;
+package GUI.NewGuis;
+
+import GUI.GUI;
 
 /**
  * Created by Cyn on 1/9/2018.

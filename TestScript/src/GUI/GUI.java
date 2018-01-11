@@ -1,39 +1,43 @@
 package GUI;
 
-import Actions.Statement;
+import Actions.Action;
+import GUI.MainPanels.ActionPanel;
+import GUI.NewGuis.NewActionGUI;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.function.Consumer;
 
 /**
  * Created by Cyn on 1/9/2018.
  */
 public class GUI extends JFrame {
-    private JButton actionButton = new JButton("Add Action"), startIfButton = new JButton("Begin If-Statement"), endIfButton = new JButton("End If-Block"), refreshButton = new JButton("Refresh"), removeButton = new JButton ("Remove Statement");
     private JButton saveButton = new JButton("Save"), loadButton = new JButton("Load");
     private JTextField file = new JTextField("");
     private File selectedFile = null;
     private JButton startButton = new JButton("Start");
 
-    private JTextArea actionList;
+    private JTextArea actionList = new JTextArea(18, 40);
 
     private NewActionGUI newAction;
-    private ArrayList<Statement> actions;
+    private ArrayList<Action> actions;
 
-    public GUI(ArrayList<Statement> actions)
+    public GUI(ArrayList<Action> actions)
     {
         this.actions = actions;
-        newAction = new NewActionGUI(actions);
+
+        Consumer<Integer> updateTextfield = (Integer i) -> {
+            updateActionList();
+        };
+
+        newAction = new NewActionGUI(actions, updateTextfield);
 
         setTitle("Script Creator");
         setLayout(new BorderLayout(12, 20));
 
-        add(actionPanel(), BorderLayout.WEST);
+        add(new ActionPanel(actionList, newAction), BorderLayout.WEST);
         add(savePanel(), BorderLayout.EAST);
         add(startPanel(), BorderLayout.PAGE_END);
 
@@ -44,15 +48,6 @@ public class GUI extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-    }
-
-    private void updateActionList()
-    {
-        actionList.setText("");
-        for (int i = 0; i < actions.size(); i++)
-        {
-            actionList.append(i + ")" + actions.get(i).toString());
-        }
     }
 
     private void addActionListeners() {
@@ -69,21 +64,21 @@ public class GUI extends JFrame {
             updateFile();
             loadContents();
         });
-
-
-        actionButton.addActionListener(o -> {
-            newAction.setVisible(true);
-        });
-
-        refreshButton.addActionListener(o -> {
-            updateActionList();
-        });
     }
 
     private void loadContents() {
     }
 
     private void saveContents() {
+    }
+
+    private void updateActionList()
+    {
+        actionList.setText("");
+        for (int i = 0; i < actions.size(); i++)
+        {
+            actionList.append(i + ")" + actions.get(i).toString());
+        }
     }
 
     private void updateFile() {
@@ -126,29 +121,4 @@ public class GUI extends JFrame {
 
         return save;
     }
-
-    private JPanel actionPanel() {
-        JPanel actPan = new JPanel();
-        actPan.setLayout(new BorderLayout(20, 0));
-
-        actionList = new JTextArea(18, 40);
-        actionList.setEditable(false);
-
-        JScrollPane scroll = new JScrollPane(actionList);
-        actionList.setBorder(BorderFactory.createEtchedBorder(Color.BLUE, Color.BLACK));
-        actPan.add(scroll, BorderLayout.WEST);
-
-        JPanel actionListButtons = new JPanel();
-        actionListButtons.setLayout(new GridLayout(5, 1, 0, 20));
-        actionListButtons.add(actionButton);
-        actionListButtons.add(startIfButton);
-        actionListButtons.add(endIfButton);
-        actionListButtons.add(refreshButton);
-        actionListButtons.add(removeButton);
-
-        actPan.add(actionListButtons);
-
-        return actPan;
-    }
-
 }
