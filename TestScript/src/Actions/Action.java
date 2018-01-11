@@ -4,10 +4,10 @@ package Actions;
  * Created by SRH on 1/9/2018.
  */
 public class Action {
-    private final String action;
-    private final String param1;
-    private final String param2;
-    private final String param3;
+    final String action;
+    final String param1;
+    final String param2;
+    final String param3;
 
     public Action(String action, String param1, String param2, String param3)
     {

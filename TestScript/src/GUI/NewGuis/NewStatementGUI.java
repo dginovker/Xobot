@@ -41,7 +41,14 @@ public class NewStatementGUI extends JFrame {
         setSize(650, 300);
 
         add.addActionListener(o -> {
-            actionList.add(new Actions.Action(selectedAction, first.getText(), second.getText(), third.getText()));
+            if (this.getTitle().contains("action"))
+            {
+                actionList.add(new Actions.Action(selectedAction, first.getText(), second.getText(), third.getText()));
+            }
+            else
+            {
+                actionList.add(new Actions.If(selectedAction, first.getText(), second.getText(), third.getText()));
+            }
             updateTextfield.accept(5);
             this.setVisible(false);
         });
@@ -109,8 +116,8 @@ public class NewStatementGUI extends JFrame {
      * Simple class holding three strings that will be the descriptions on the UI
      */
     class Descriptions {
-        private String s;
-        private String s1;
+        private String s = null;
+        private String s1 = null;
         private String s2 = null;
 
         public Descriptions(String s, String s1, String s2)
@@ -123,6 +130,10 @@ public class NewStatementGUI extends JFrame {
         {
             this.s = s;
             this.s1 = s1;
+        }
+
+        public Descriptions(String s) {
+            this.s = s;
         }
 
         public String getS2() {

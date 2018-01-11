@@ -3,6 +3,7 @@ package GUI;
 import Actions.Action;
 import GUI.MainPanels.ActionPanel;
 import GUI.NewGuis.NewActionGUI;
+import GUI.NewGuis.NewConditionGUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +22,7 @@ public class GUI extends JFrame {
 
     private JTextArea actionList = new JTextArea(18, 40);
 
+    private NewConditionGUI newCondition;
     private NewActionGUI newAction;
     private ArrayList<Action> actions;
 
@@ -31,13 +33,20 @@ public class GUI extends JFrame {
         Consumer<Integer> updateTextfield = (Integer i) -> {
             updateActionList();
         };
+        Consumer<Integer> removeAction = (Integer toRemove) -> {
+            if (actions.size() > toRemove && toRemove > 0)
+            {
+                actions.remove(toRemove);
+            }
+        };
 
         newAction = new NewActionGUI(actions, updateTextfield);
+        newCondition = new NewConditionGUI(actions, updateTextfield);
 
         setTitle("Script Creator");
         setLayout(new BorderLayout(12, 20));
 
-        add(new ActionPanel(actionList, newAction), BorderLayout.WEST);
+        add(new ActionPanel(actionList, newAction, newCondition, removeAction), BorderLayout.WEST);
         add(savePanel(), BorderLayout.EAST);
         add(startPanel(), BorderLayout.PAGE_END);
 
@@ -77,7 +86,7 @@ public class GUI extends JFrame {
         actionList.setText("");
         for (int i = 0; i < actions.size(); i++)
         {
-            actionList.append(i + ")" + actions.get(i).toString());
+            actionList.append(i + ")" + actions.get(i).toString() + "\n");
         }
     }
 
