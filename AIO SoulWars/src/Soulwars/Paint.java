@@ -1,3 +1,5 @@
+package Soulwars;
+
 import xobot.client.callback.listeners.PaintListener;
 
 import java.awt.*;

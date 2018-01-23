@@ -1,3 +1,5 @@
+package Soulwars;
+
 import xobot.script.methods.Players;
 import xobot.script.wrappers.Area;
 import xobot.script.wrappers.Tile;
