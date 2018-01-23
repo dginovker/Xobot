@@ -2,16 +2,43 @@ package Soulwars;
 
 public class MessageHandler {
 
-    private final int CHAT = 2;
-    private final int YELL = 18;
-    private final int CLAN = 13;
-    private final int GAME = 0;
+    private static final int CHAT = 2;
+    private static final int YELL = 18;
+    private static final int CLAN = 13;
+    private static final int GAME = 0;
 
 
     public static void handle(String msg, int type, String username) {
         msg = msg.toLowerCase();
 
+        if (type == GAME) {
 
+            if (msg.contains("you have been added to")) {
+
+                String relevant = msg.substring(msg.indexOf(">"), msg.indexOf("/")).replaceAll("[^a-z]", "");
+                System.out.println(relevant);
+                if (relevant.contains("blue")) {
+                    Variables.setCurrentTeam(Team.BLUE);
+                } else {
+                    Variables.setCurrentTeam(Team.RED);
+                }
+            }
+
+            if (msg.contains("next game begins")) {
+                // String relevant = msg.substring(msg.indexOf(">"), msg.indexOf("/"));
+                // int time = Integer.parseInt(relevant.replaceAll("[^\\d]", ""));
+                // Variables.setNextGame(System.currentTimeMillis() + time * 1000);
+            }
+
+            if (msg.contains("minimum 4 players")) {
+                Variables.setNextGame(300 * 1000);
+            }
+
+            if (msg.contains("you left your team")) {
+                Variables.setCurrentTeam(null);
+            }
+
+        }
 
     }
 }

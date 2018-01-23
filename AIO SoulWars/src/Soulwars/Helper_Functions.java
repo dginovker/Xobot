@@ -1,6 +1,7 @@
 package Soulwars;
 
 import xobot.script.methods.Players;
+import xobot.script.util.Time;
 import xobot.script.wrappers.Area;
 import xobot.script.wrappers.Tile;
 import xobot.script.wrappers.interactive.Player;
@@ -123,5 +124,21 @@ public class Helper_Functions {
     public Tile playerLocation()
     {
         return Players.getMyPlayer().getLocation();
+    }
+
+    public static boolean conditionalSleep(SleepCondition conn, int timeout) {
+        long start = System.currentTimeMillis();
+        while (!conn.isValid()) {
+            if (start + timeout < System.currentTimeMillis()) {
+                return false;
+            }
+            Time.sleep(50);
+        }
+        return true;
+    }
+
+    public interface SleepCondition {
+
+        boolean isValid();
     }
 }
