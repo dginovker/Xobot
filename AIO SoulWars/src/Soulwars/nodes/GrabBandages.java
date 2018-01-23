@@ -1,7 +1,7 @@
 package Soulwars.nodes;
 
-import Soulwars.Helper_Functions;
-import Soulwars.Variables;
+import Soulwars.aids.Helper_Functions;
+import Soulwars.aids.Variables;
 import xobot.bot.Context;
 import xobot.script.methods.GameObjects;
 import xobot.script.methods.Players;
@@ -9,8 +9,8 @@ import xobot.script.methods.input.KeyBoard;
 import xobot.script.methods.tabs.Inventory;
 import xobot.script.wrappers.interactive.GameObject;
 
-import static Soulwars.Constants.BANDAGES;
-import static Soulwars.Constants.BANDAGE_STALL;
+import static Soulwars.aids.Constants.BANDAGES;
+import static Soulwars.aids.Constants.BANDAGE_STALL;
 
 /**
  * Created by Cyn on 1/23/2018.

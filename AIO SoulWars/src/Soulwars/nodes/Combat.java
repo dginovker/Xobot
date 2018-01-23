@@ -1,6 +1,6 @@
 package Soulwars.nodes;
 
-import Soulwars.Helper_Functions;
+import Soulwars.aids.Helper_Functions;
 import Soulwars.Node;
 import xobot.script.methods.Players;
 import xobot.script.wrappers.interactive.Player;

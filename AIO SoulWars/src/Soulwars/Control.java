@@ -8,8 +8,8 @@ import xobot.script.ActiveScript;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static Soulwars.Variables.getLoopDelay;
-import static Soulwars.Variables.setLoopDelay;
+import static Soulwars.aids.Variables.getLoopDelay;
+import static Soulwars.aids.Variables.setLoopDelay;
 
 /**
  * Created by SRH on 1/22/2018.

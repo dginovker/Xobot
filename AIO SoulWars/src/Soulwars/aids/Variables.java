@@ -1,4 +1,4 @@
-package Soulwars;
+package Soulwars.aids;
 
 import xobot.script.wrappers.Tile;
 

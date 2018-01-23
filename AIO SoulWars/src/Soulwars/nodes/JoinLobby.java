@@ -1,13 +1,13 @@
 package Soulwars.nodes;
 
-import Soulwars.Helper_Functions;
+import Soulwars.aids.Helper_Functions;
 import Soulwars.Node;
-import Soulwars.Variables;
+import Soulwars.aids.Variables;
 import xobot.script.methods.GameObjects;
 import xobot.script.methods.Players;
 import xobot.script.wrappers.interactive.GameObject;
 
-import static Soulwars.Constants.LOBBY_AREA;
+import static Soulwars.aids.Constants.LOBBY_AREA;
 
 /**
  * Created by Cyn on 1/23/2018.

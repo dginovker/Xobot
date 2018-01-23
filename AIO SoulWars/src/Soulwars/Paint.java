@@ -1,5 +1,7 @@
 package Soulwars;
 
+import Soulwars.aids.Variables;
+
 import java.awt.*;
 
 /**

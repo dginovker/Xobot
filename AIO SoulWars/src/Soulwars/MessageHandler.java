@@ -1,5 +1,7 @@
 package Soulwars;
 
+import Soulwars.aids.Variables;
+
 public class MessageHandler {
 
     private static final int CHAT = 2;
@@ -18,9 +20,9 @@ public class MessageHandler {
                 String relevant = msg.substring(msg.indexOf(">"), msg.indexOf("/")).replaceAll("[^a-z]", "");
                 System.out.println(relevant);
                 if (relevant.contains("blue")) {
-                    Variables.setCurrentTeam(Team.BLUE);
+                    Variables.setCurrentTeam(Variables.Team.BLUE);
                 } else {
-                    Variables.setCurrentTeam(Team.RED);
+                    Variables.setCurrentTeam(Variables.Team.RED);
                 }
             }
 
