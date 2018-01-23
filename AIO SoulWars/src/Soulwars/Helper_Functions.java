@@ -3,6 +3,7 @@ package Soulwars;
 import xobot.script.methods.Players;
 import xobot.script.wrappers.Area;
 import xobot.script.wrappers.Tile;
+import xobot.script.wrappers.interactive.Player;
 
 /**
  * Created by SRH on 1/22/2018.
@@ -30,12 +31,32 @@ public class Helper_Functions {
     public Area westGraveyardArea = new Area(0, 0, 0, 0);
     public Area obliskArea = new Area(0, 0, 0, 0);
 
+
+    public double distance(Tile location, Tile tile) {
+        return Math.sqrt(Math.pow(location.x - tile.x, 2) + Math.pow(location.y - tile.y, 2));
+    }
+
+    /*
+        I have no idea how to code this.
+     */
+    public boolean isEnemy(Player o) {
+        return false;
+    }
+
     /*
         Needs to be coded.. Check cape color somehow(?), or set variable when you enter?
      */
     public String getTeam()
     {
         return "Red";
+    }
+
+    /*
+        Find frozen widget?
+     */
+    public boolean isFrozen()
+    {
+        return false;
     }
 
     public boolean inSpawnArea()
