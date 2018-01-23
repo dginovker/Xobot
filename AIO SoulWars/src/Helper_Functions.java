@@ -1,4 +1,6 @@
+import xobot.script.methods.Players;
 import xobot.script.wrappers.Area;
+import xobot.script.wrappers.Tile;
 
 /**
  * Created by SRH on 1/22/2018.
@@ -24,4 +26,37 @@ public class Helper_Functions {
     public Area eastGraveyardArea = new Area(0, 0, 0, 0);
     public Area westGraveyardArea = new Area(0, 0, 0, 0);
     public Area obliskArea = new Area(0, 0, 0, 0);
+
+    /*
+        Needs to be coded.. Check cape color somehow(?), or set variable when you enter?
+     */
+    public String getTeam()
+    {
+        return "Red";
+    }
+
+    public boolean inSpawnArea()
+    {
+        return blueSpawnArea.contains(playerLocation()) || redSpawnArea.contains(playerLocation());
+    }
+
+    public boolean inEastGraveyardArea()
+    {
+        return eastGraveyardArea.contains(playerLocation());
+    }
+
+    public boolean inWestGraveyardArea()
+    {
+        return westGraveyardArea.contains(playerLocation());
+    }
+
+    public boolean inObliskArea()
+    {
+        return obliskArea.contains(playerLocation());
+    }
+
+    public Tile playerLocation()
+    {
+        return Players.getMyPlayer().getLocation();
+    }
 }
