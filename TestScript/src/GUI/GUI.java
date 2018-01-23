@@ -1,6 +1,8 @@
 package GUI;
 
 import Actions.Action;
+import Actions.If;
+import Actions.endIf;
 import GUI.MainPanels.ActionPanel;
 import GUI.NewGuis.NewActionGUI;
 import GUI.NewGuis.NewConditionGUI;
@@ -39,6 +41,10 @@ public class GUI extends JFrame {
                 actions.remove(toRemove);
             }
         };
+        Consumer<Boolean> endIf = (Boolean remove) -> {
+            actions.add(new endIf());
+            updateTextfield.accept(1);
+        };
 
         newAction = new NewActionGUI(actions, updateTextfield);
         newCondition = new NewConditionGUI(actions, updateTextfield);
@@ -46,7 +52,7 @@ public class GUI extends JFrame {
         setTitle("Script Creator");
         setLayout(new BorderLayout(12, 20));
 
-        add(new ActionPanel(actionList, newAction, newCondition, removeAction), BorderLayout.WEST);
+        add(new ActionPanel(actionList, newAction, newCondition, removeAction, endIf), BorderLayout.WEST);
         add(savePanel(), BorderLayout.EAST);
         add(startPanel(), BorderLayout.PAGE_END);
 
@@ -84,9 +90,26 @@ public class GUI extends JFrame {
     private void updateActionList()
     {
         actionList.setText("");
+        int tabsInFront = 0;
+        String toAppend;
         for (int i = 0; i < actions.size(); i++)
         {
-            actionList.append(i + ")" + actions.get(i).toString() + "\n");
+            if (actions.get(i) instanceof endIf)
+            {
+                tabsInFront --;
+            }
+
+            toAppend = i + ")";
+            for (int j = 0; j < tabsInFront; j++)
+            {
+                toAppend = toAppend + "    ";
+            }
+            actionList.append(toAppend + actions.get(i).toString() + "\n");
+
+            if (actions.get(i) instanceof If)
+            {
+                tabsInFront ++;
+            }
         }
     }
 

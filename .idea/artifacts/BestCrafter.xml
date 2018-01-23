@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BestCrafter">
+    <output-path>$USER_HOME$/Documents/XoBot/Scripts</output-path>
+    <root id="archive" name="BestCrafter.jar">
+      <element id="module-output" name="BestRuneCrafter" />
+    </root>
+  </artifact>
+</component>

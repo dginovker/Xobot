@@ -17,6 +17,13 @@ public class Action {
         this.param3 = param3;
     }
 
+    public Action() {
+        this.action = null;
+        this.param1 = null;
+        this.param2 = null;
+        this.param3 = null;
+    }
+
     @Override
     public String toString() {
         return "Action{" +

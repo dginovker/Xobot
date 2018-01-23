@@ -16,13 +16,15 @@ public class ActionPanel extends JPanel {
     private NewActionGUI newAction;
     private NewConditionGUI newCondition;
     private Consumer<Integer> removeAction;
+    private Consumer<Boolean> endIf;
 
-    public ActionPanel(JTextArea actionList, NewActionGUI newAction, NewConditionGUI newCondition, Consumer<Integer> removeAction)
+    public ActionPanel(JTextArea actionList, NewActionGUI newAction, NewConditionGUI newCondition, Consumer<Integer> removeAction, Consumer <Boolean> endIf)
     {
         this.actionList = actionList;
         this.newAction = newAction;
         this.newCondition = newCondition;
         this.removeAction = removeAction;
+        this.endIf = endIf;
 
         setLayout(new BorderLayout(20, 0));
 
@@ -54,6 +56,10 @@ public class ActionPanel extends JPanel {
         });
 
         endIfButton.addActionListener(o -> {
+            endIf.accept(true);
+        });
+
+        removeButton.addActionListener(o -> {
             String path = JOptionPane.showInputDialog("Enter the Statement# you wish to delete:");
 
             try{
