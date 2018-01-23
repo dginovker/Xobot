@@ -21,6 +21,7 @@ public class Helper_Functions {
         COLLECTING_SHARDS,
         USING_SHARDS_ON_OBLISK
         //More states will probably need to be added.
+        //All of these have to be nodes!
     }
 
     public Area blueSpawnArea = new Area(0, 0, 0, 0);
@@ -55,6 +56,45 @@ public class Helper_Functions {
     public boolean inObliskArea()
     {
         return obliskArea.contains(playerLocation());
+    }
+
+    public boolean isObliskMine()
+    {
+        return getTeam().equals(obliskTeam());
+    }
+
+    public boolean isWestGraveyardMine()
+    {
+        return getTeam().equals(westGraveyardTeam());
+    }
+
+    public boolean isEastGraveyardMine()
+    {
+        return getTeam().equals(eastGraveyardTeam());
+    }
+
+    /*
+        We need a way of finding out who owns what
+     */
+    public String obliskTeam()
+    {
+        return "Red";
+    }
+
+    /*
+        We need a way of finding out who owns what
+     */
+    public String westGraveyardTeam()
+    {
+        return "Red";
+    }
+
+    /*
+        We need a way of finding out who owns what
+    */
+    public String eastGraveyardTeam()
+    {
+        return "Red";
     }
 
     public Tile playerLocation()

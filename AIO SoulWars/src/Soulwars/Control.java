@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Control extends ActiveScript implements MessageListener {
 
-    private int loopDelay = -1
+    public int loopDelay = -1;
     private final ArrayList<Node> nodes = new ArrayList<>();
 
     @Override
@@ -33,5 +33,10 @@ public class Control extends ActiveScript implements MessageListener {
 
     public void onStop() {
         loopDelay = -1;
+    }
+
+    @Override
+    public void MessageRecieved(String s, int i, String s1) {
+
     }
 }
