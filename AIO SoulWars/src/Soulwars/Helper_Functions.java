@@ -22,7 +22,7 @@ public class Helper_Functions {
         COLLECTING_SHARDS,
         USING_SHARDS_ON_OBLISK
         //More states will probably need to be added.
-        //All of these have to be nodes!
+        //Most of these have to be nodes!
     }
 
     public Area blueSpawnArea = new Area(0, 0, 0, 0);
@@ -30,6 +30,8 @@ public class Helper_Functions {
     public Area eastGraveyardArea = new Area(0, 0, 0, 0);
     public Area westGraveyardArea = new Area(0, 0, 0, 0);
     public Area obliskArea = new Area(0, 0, 0, 0);
+
+    public Area soulwarsArea = new Area(1800, 3200, 1980, 3260);
 
 
     public double distance(Tile location, Tile tile) {
