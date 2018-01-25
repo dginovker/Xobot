@@ -97,6 +97,11 @@ public class Helper_Functions {
         return getTeam().equals(eastGraveyardTeam());
     }
 
+    public boolean isInGame()
+    {
+        return Constants.GAME_AREA.contains(playerLocation());
+    }
+
     /*
         We need a way of finding out who owns what
      */

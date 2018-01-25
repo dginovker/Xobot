@@ -11,6 +11,7 @@ import xobot.script.wrappers.interactive.GameObject;
 
 import static Soulwars.aids.Constants.BANDAGES;
 import static Soulwars.aids.Constants.BANDAGE_STALL;
+import static Soulwars.aids.Constants.GAME_AREA;
 
 /**
  * Created by Cyn on 1/23/2018.
@@ -23,7 +24,8 @@ public class GrabBandages extends Soulwars.Node {
     public boolean validate() {
         return Variables.getCurrentTeam() != null
                 && !Inventory.Contains(BANDAGES)
-                && !Players.getMyPlayer().isInCombat(); // && player is in the fucking game
+                && !Players.getMyPlayer().isInCombat()
+                && GAME_AREA.contains(Players.getMyPlayer().getLocation());
     }
 
     @Override

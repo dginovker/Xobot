@@ -1,9 +1,12 @@
 package Soulwars;
 
+import Soulwars.aids.Helper_Functions;
 import Soulwars.nodes.Idle;
+import xobot.client.Player;
 import xobot.client.callback.listeners.MessageListener;
 import xobot.client.callback.listeners.PaintListener;
 import xobot.script.ActiveScript;
+import xobot.script.methods.Players;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -16,23 +19,46 @@ import static Soulwars.aids.Variables.setLoopDelay;
  */
 public class Control extends ActiveScript implements MessageListener, PaintListener {
 
-    private final ArrayList<Node> nodes = new ArrayList<>();
+    private final ArrayList<Node> farmFragments = new ArrayList<>();
+    private final ArrayList<Node> joinGame = new ArrayList<>();
+    private final ArrayList<Node> conquorMap = new ArrayList<>();
+    private ArrayList<Node> activeNode = null;
+
+    private Helper_Functions helper;
 
     @Override
     public boolean onStart() {
         setLoopDelay(50);
-        nodes.add(new Idle());
+        farmFragments.add(new Idle());
+        joinGame.add(new Idle());
+        conquorMap.add(new Idle());
         return true;
     }
 
     @Override
     public int loop() {
-        for (Node node : nodes) {
+        setActiveNode();
+
+        for (Node node : activeNode) {
             if (node.validate()) {
                 node.execute();
             }
         }
         return getLoopDelay();
+    }
+
+    private void setActiveNode() {
+        if (!helper.isInGame())
+        {
+            activeNode = joinGame;
+            return;
+        }
+        if (helper.isObliskMine())
+        {
+            activeNode = farmFragments;
+            return;
+        }
+        activeNode = conquorMap;
     }
 
     public void onStop() {
