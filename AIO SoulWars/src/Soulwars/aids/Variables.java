@@ -39,7 +39,7 @@ public class Variables {
         Variables.currentTeam = currentTeam;
     }
 
-    enum Team {
+    public enum Team {
 
         BLUE(0, new Tile(1234, 1234), new Tile(1234, 1234)),
         RED(0, new Tile(1234, 1234), new Tile(1234, 1234));

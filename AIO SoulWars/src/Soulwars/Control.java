@@ -2,10 +2,12 @@ package Soulwars;
 
 import Soulwars.aids.Helper_Functions;
 import Soulwars.nodes.Idle;
+import Soulwars.nodes.JoinLobby;
 import xobot.client.Player;
 import xobot.client.callback.listeners.MessageListener;
 import xobot.client.callback.listeners.PaintListener;
 import xobot.script.ActiveScript;
+import xobot.script.Manifest;
 import xobot.script.methods.Players;
 
 import java.awt.*;
@@ -17,6 +19,7 @@ import static Soulwars.aids.Variables.setLoopDelay;
 /**
  * Created by SRH on 1/22/2018.
  */
+@Manifest(authors = { "Jake, SRH, Skattle, Kappakek" }, name = "AIO SoulWars", version = 0.1, description = "")
 public class Control extends ActiveScript implements MessageListener, PaintListener {
 
     private final ArrayList<Node> farmFragments = new ArrayList<>();
@@ -30,7 +33,7 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
     public boolean onStart() {
         setLoopDelay(50);
         farmFragments.add(new Idle());
-        joinGame.add(new Idle());
+        joinGame.add(new JoinLobby());
         conquorMap.add(new Idle());
         return true;
     }
