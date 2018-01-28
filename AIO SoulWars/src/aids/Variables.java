@@ -1,4 +1,4 @@
-package Soulwars.aids;
+package aids;
 
 import xobot.script.wrappers.Tile;
 
@@ -13,6 +13,7 @@ public class Variables {
     private static int loopDelay = -1;
     private static long nextGame;
     private static Team currentTeam;
+    private static String scriptState;
 
 
     public static int getLoopDelay() {
@@ -37,6 +38,14 @@ public class Variables {
 
     public static void setCurrentTeam(Team currentTeam) {
         Variables.currentTeam = currentTeam;
+    }
+
+    public static String getScriptState() {
+        return scriptState;
+    }
+
+    public static void setScriptState(String setter) {
+        scriptState = setter;
     }
 
     public enum Team {

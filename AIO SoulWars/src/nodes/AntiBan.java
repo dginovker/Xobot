@@ -1,6 +1,5 @@
-package Soulwars.nodes;
+package nodes;
 
-import Soulwars.Node;
 import xobot.script.methods.Players;
 import xobot.script.util.Time;
 import xobot.script.wrappers.interactive.Player;

@@ -1,4 +1,4 @@
-package Soulwars.aids;
+package aids;
 
 import xobot.script.methods.Players;
 import xobot.script.util.Time;

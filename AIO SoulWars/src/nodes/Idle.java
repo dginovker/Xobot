@@ -1,10 +1,9 @@
-package Soulwars.nodes;
+package nodes;
 
-import Soulwars.Node;
 import xobot.script.util.Time;
 
 /**
- * kekgod - ksoulwars.Soulwars.nodes.
+ * kekgod - ksoulwars.nodes.
  */
 public class Idle extends Node {
     @Override

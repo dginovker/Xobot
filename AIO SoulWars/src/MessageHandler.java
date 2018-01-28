@@ -1,6 +1,4 @@
-package Soulwars;
-
-import Soulwars.aids.Variables;
+import aids.Variables;
 
 public class MessageHandler {
 
@@ -29,7 +27,7 @@ public class MessageHandler {
             if (msg.contains("next game begins")) {
                 // String relevant = msg.substring(msg.indexOf(">"), msg.indexOf("/"));
                 // int time = Integer.parseInt(relevant.replaceAll("[^\\d]", ""));
-                // Variables.setNextGame(System.currentTimeMillis() + time * 1000);
+                // aids.Variables.setNextGame(System.currentTimeMillis() + time * 1000);
             }
 
             if (msg.contains("minimum 4 players")) {
