@@ -28,7 +28,7 @@ public class JoinLobby extends Node {
 
     @Override
     public void execute() {
-        System.out.println("JoinLobby valid");
+        Variables.setCurrentNode(this);
         portal = GameObjects.getNearest(42031);
 
 

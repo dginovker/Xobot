@@ -2,6 +2,7 @@ package nodes;
 
 import aids.Constants;
 import aids.Helper_Functions;
+import aids.Variables;
 import xobot.script.methods.GameObjects;
 import xobot.script.util.Time;
 import xobot.script.wrappers.interactive.GameObject;
@@ -20,6 +21,8 @@ public class Dead extends Node {
 
     @Override
     public void execute() {
+        Variables.setCurrentNode(this);
+
         GameObject barrier = GameObjects.getNearest(Constants.EXIT_BARRIER);//GET EXIT_BARRIER VALUE
         barrier.interact("Pass");//DOUBLE CHECK STRING
         Time.sleep(1200);
@@ -27,6 +30,6 @@ public class Dead extends Node {
 
     @Override
     public String toString() {
-        return null;
+        return "Handling Death";
     }
 }
