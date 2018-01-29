@@ -1,5 +1,8 @@
 import aids.Constants;
 import aids.Variables;
+import nodes.Combat;
+import nodes.Dead;
+import nodes.GrabBandages;
 import nodes.Node;
 import xobot.client.callback.listeners.MessageListener;
 import xobot.client.callback.listeners.PaintListener;
@@ -27,9 +30,9 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
     @Override
     public boolean onStart() {
         setLoopDelay(300);
-        farmFragments.add(new nodes.Dead());
         joinGame.add(new nodes.JoinLobby());
-        conquorMap.add(new nodes.Idle());
+        addConquorMapNodes();
+        addFarmFragmentsNodes();
         return true;
     }
 
@@ -60,6 +63,18 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
         }*/
         Variables.setScriptState("Conquering Map");
         activeNode = conquorMap;
+    }
+
+    private void addFarmFragmentsNodes() {
+        conquorMap.add(new Dead());
+        conquorMap.add(new GrabBandages());
+        conquorMap.add(new Combat());
+    }
+
+    private void addConquorMapNodes() {
+        conquorMap.add(new Dead());
+        conquorMap.add(new GrabBandages());
+        conquorMap.add(new Combat());
     }
 
     public void onStop() {

@@ -26,12 +26,6 @@ public class Helper_Functions {
         //Most of these have to be nodes!
     }
 
-    public Area blueSpawnArea = new Area(0, 0, 0, 0);
-    public Area redSpawnArea = new Area(0, 0, 0, 0);
-    public Area eastGraveyardArea = new Area(0, 0, 0, 0);
-    public Area westGraveyardArea = new Area(0, 0, 0, 0);
-    public Area obliskArea = new Area(0, 0, 0, 0);
-
     public Area soulwarsArea = new Area(1800, 3200, 1980, 3260);
 
 

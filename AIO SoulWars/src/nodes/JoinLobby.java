@@ -8,6 +8,9 @@ import xobot.script.methods.GameObjects;
 import xobot.script.methods.Players;
 import xobot.script.wrappers.interactive.GameObject;
 
+import static aids.Constants.BLUE_TEAM_LOBBY;
+import static aids.Constants.RED_TEAM_LOBBY;
+
 /**
  * Created by SRH on 1/23/2018.
  */
@@ -18,9 +21,9 @@ public class JoinLobby extends Node {
 
     @Override
     public boolean validate() {
-        System.out.println("Checking validation of JoinLobby");
-        System.out.println(Constants.LOBBY_AREA.contains(Players.getMyPlayer().getLocation()));
-        return Constants.LOBBY_AREA.contains(Players.getMyPlayer().getLocation());
+        return Constants.LOBBY_AREA.contains(Players.getMyPlayer().getLocation())
+                && !BLUE_TEAM_LOBBY.contains(Players.getMyPlayer().getLocation())
+                && !RED_TEAM_LOBBY.contains(Players.getMyPlayer().getLocation());
     }
 
     @Override
