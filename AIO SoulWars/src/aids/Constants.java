@@ -11,11 +11,11 @@ public class Constants {
         //no fucking instantiation
     }
 
-    public static final Area blueSpawnArea = new Area(0, 0, 0, 0);
-    public static final Area redSpawnArea = new Area(0, 0, 0, 0);
-    public static final Area eastGraveyardArea = new Area(0, 0, 0, 0);
-    public static final Area westGraveyardArea = new Area(0, 0, 0, 0);
-    public static final Area obliskArea = new Area(0, 0, 0, 0);
+    public static final Area BLUE_SPAWN_AREA = new Area(0, 0, 0, 0);
+    public static final Area RED_SPAWN_AREA = new Area(0, 0, 0, 0);
+    public static final Area EAST_GRAVEUARD_AREA = new Area(0, 0, 0, 0);
+    public static final Area WEST_GRAVEYWARD_AREA = new Area(0, 0, 0, 0);
+    public static final Area OBLISK_AREA = new Area(0, 0, 0, 0);
 
 
     public static final Area LOBBY_AREA = new Area(new Tile(1872, 1904), new Tile(3140, 3186));
