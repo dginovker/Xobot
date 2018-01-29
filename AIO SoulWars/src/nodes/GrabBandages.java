@@ -11,7 +11,7 @@ import xobot.script.methods.tabs.Inventory;
 import xobot.script.wrappers.interactive.GameObject;
 
 /**
- * Created by Cyn on 1/23/2018.
+ * Created by Skattle on 1/23/2018.
  */
 public class GrabBandages extends Node {
 

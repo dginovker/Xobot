@@ -36,10 +36,6 @@ public class JoinLobby extends Node {
             portal.interact("join-team");
             Helper_Functions.conditionalSleep(() -> Variables.getCurrentTeam() != null, 3500);
         }
-        else
-        {
-            System.out.println("Portal is null!");
-        }
     }
 
 

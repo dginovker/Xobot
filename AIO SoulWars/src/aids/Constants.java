@@ -19,6 +19,7 @@ public class Constants {
     public static final Area WEST_GRAVEYWARD_AREA = new Area(1837, 3223, 1847, 3213);
     public static final Area OBLISK_AREA = new Area(1894, 3239, 1879, 3224);
 
+    public static final Tile OBLISK_CENTER_TILE = new Tile(1886, 1731);
 
     public static final Area LOBBY_AREA = new Area(new Tile(1872, 1904), new Tile(3140, 3186));
     public static final Area BLUE_TEAM_LOBBY = new Area(1879, 3166, 1870, 3158);

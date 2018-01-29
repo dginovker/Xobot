@@ -76,6 +76,8 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
         conquorMap.add(new Dead());
         conquorMap.add(new GrabBandages());
         conquorMap.add(new Combat());
+        conquorMap.add(new AttackOblisk());
+        conquorMap.add(new RunToOblisk());
     }
 
     public void onStop() {

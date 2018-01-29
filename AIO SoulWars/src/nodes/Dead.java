@@ -11,10 +11,9 @@ import xobot.script.wrappers.interactive.GameObject;
 import static aids.Constants.*;
 
 /**
- * Created by Cyn on 1/23/2018.
+ * Created by SRH on 1/23/2018.
  */
 public class Dead extends Node {
-    Helper_Functions help;
     @Override
     public boolean validate() {
         return BLUE_SPAWN_AREA.contains(Players.getMyPlayer().getLocation())

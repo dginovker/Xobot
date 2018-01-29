@@ -12,7 +12,7 @@ public class Combat extends Node {
 
     @Override
     public boolean validate() {
-        return Players.getMyPlayer().isInCombat() || Players.getNearest(o -> help.isEnemy(o) && help.distance(o.getLocation(), help.playerLocation()) < 12) != null;
+        return Players.getMyPlayer().isInCombat() || Players.getNearest(o -> help.isEnemy(o) && o.getDistance() < 12) != null;
     }
 
     @Override
