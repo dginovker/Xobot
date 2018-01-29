@@ -15,7 +15,7 @@ public class SetTeam extends Node {
 
     @Override
     public void execute() {
-        Variables.setCurrentNode(this);
+        Variables.setScriptNode("Chilling & Setting Team");
         if (BLUE_TEAM_LOBBY.contains(Players.getMyPlayer().getLocation()))
         {
             Variables.setCurrentTeam(Variables.Team.BLUE);

@@ -16,7 +16,6 @@ public class Variables {
     private static Team currentTeam;
     private static String scriptState;
     private static String scriptNode;
-    private static Node currentNode;
 
     public static int getLoopDelay() {
         return loopDelay;
@@ -56,14 +55,6 @@ public class Variables {
 
     public static void setScriptNode(String node) {
         scriptNode = node;
-    }
-
-    public static Node getCurrentNode() {
-        return currentNode;
-    }
-
-    public static void setCurrentNode(Node currentNode) {
-        Variables.currentNode = currentNode;
     }
 
     public enum Team {

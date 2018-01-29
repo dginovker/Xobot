@@ -12,7 +12,7 @@ public class Combat extends Node {
 
     @Override
     public boolean validate() {
-        return Players.getMyPlayer().isInCombat() || Players.getNearest(o -> help.isEnemy(o) && o.getDistance() < 12) != null;
+        return Players.getMyPlayer().isInCombat();
     }
 
     @Override
@@ -40,18 +40,16 @@ public class Combat extends Node {
         //If wearing ranged
         //If has melee equipment
             //Switch to melee
-        attack();
     }
 
     private void useRanged() {
         //If wearing melee
         //If has ranged equipment
             //Switch to ranged
-        attack();
     }
 
     @Override
     public String toString() {
-        return null;
+        return "Fighting Someone";
     }
 }

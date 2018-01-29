@@ -12,7 +12,7 @@ public class Constants {
     }
 
     public static final Area BLUE_SPAWN_AREA = new Area(0, 0, 0, 0);
-    public static final Area RED_SPAWN_AREA = new Area(1958, 3244, 1951, 3241);
+    public static final Area RED_SPAWN_AREA = new Area(1958, 3244, 1951, 3234);
     public static final Area EAST_GRAVEYARD_SPAWN = new Area(1932, 3246, 1934, 3244);
     public static final Area WEST_GRAVEYARD_SPAWN = new Area(1841, 3217, 1843, 3219);
     public static final Area EAST_GRAVEUARD_AREA = new Area(1938, 3240, 1928, 3250);
@@ -23,7 +23,7 @@ public class Constants {
 
     public static final Area LOBBY_AREA = new Area(new Tile(1872, 1904), new Tile(3140, 3186));
     public static final Area BLUE_TEAM_LOBBY = new Area(1879, 3166, 1870, 3158);
-    public static final Area RED_TEAM_LOBBY = new Area(0, 0, 0, 0);
+    public static final Area RED_TEAM_LOBBY = new Area(1900, 3166, 1909, 3157);
 
     public static final Area GAME_AREA = new Area(new Tile(1800, 3200), new Tile(1980, 3260));
 
