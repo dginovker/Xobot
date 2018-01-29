@@ -1,9 +1,6 @@
 import aids.Constants;
 import aids.Variables;
-import nodes.Combat;
-import nodes.Dead;
-import nodes.GrabBandages;
-import nodes.Node;
+import nodes.*;
 import xobot.client.callback.listeners.MessageListener;
 import xobot.client.callback.listeners.PaintListener;
 import xobot.script.ActiveScript;
@@ -18,19 +15,18 @@ import static aids.Variables.setLoopDelay;
 /**
  * Created by SRH on 1/22/2018.
  */
-@Manifest(authors = { "Jake, SRH, Skattle, Kappakek" }, name = "AIO SoulWars", version = 0.1, description = "")
+@Manifest(authors = { "Jake, SRH, Skattle, Kappakek" }, name = "AIO SoulWars", version = 0.1, description = "Plays Soul Wars for that sweet sweet Zeal")
 public class Control extends ActiveScript implements MessageListener, PaintListener {
     private final ArrayList<nodes.Node> farmFragments = new ArrayList<>();
     private final ArrayList<nodes.Node> joinGame = new ArrayList<>();
     private final ArrayList<nodes.Node> conquorMap = new ArrayList<>();
     private ArrayList<Node> activeNode = null;
 
-    private aids.Helper_Functions helper;
 
     @Override
     public boolean onStart() {
         setLoopDelay(300);
-        joinGame.add(new nodes.JoinLobby());
+        addJoinLobbyNodes();
         addConquorMapNodes();
         addFarmFragmentsNodes();
         return true;
@@ -63,6 +59,11 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
         }*/
         Variables.setScriptState("Conquering Map");
         activeNode = conquorMap;
+    }
+
+    private void addJoinLobbyNodes() {
+        joinGame.add(new JoinLobby());
+        joinGame.add(new SetTeam());
     }
 
     private void addFarmFragmentsNodes() {

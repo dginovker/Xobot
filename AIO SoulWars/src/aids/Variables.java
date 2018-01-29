@@ -14,6 +14,7 @@ public class Variables {
     private static long nextGame;
     private static Team currentTeam;
     private static String scriptState;
+    private static String scriptNode;
 
 
     public static int getLoopDelay() {
@@ -46,6 +47,14 @@ public class Variables {
 
     public static void setScriptState(String setter) {
         scriptState = setter;
+    }
+
+    public static String getScriptNode() {
+        return scriptNode;
+    }
+
+    public static void setScriptNode(String node) {
+        scriptNode = node;
     }
 
     public enum Team {
