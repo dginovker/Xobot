@@ -6,6 +6,7 @@ import xobot.client.callback.listeners.PaintListener;
 import xobot.script.ActiveScript;
 import xobot.script.Manifest;
 import xobot.script.methods.Players;
+import xobot.script.util.Timer;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import static aids.Variables.setLoopDelay;
 /**
  * Created by SRH on 1/22/2018.
  */
-@Manifest(authors = { "Jake, SRH, Skattle, Kappakek" }, name = "AIO SoulWars", version = 0.1, description = "Plays Soul Wars for that sweet sweet Zeal")
+@Manifest(authors = { "SRH, Skattle, Kappakek, Jake" }, name = "AIO SoulWars", version = 0.1, description = "Plays Soul Wars for that sweet sweet Zeal")
 public class Control extends ActiveScript implements MessageListener, PaintListener {
     private final ArrayList<nodes.Node> farmFragments = new ArrayList<>();
     private final ArrayList<nodes.Node> joinGame = new ArrayList<>();
@@ -29,6 +30,7 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
         addJoinLobbyNodes();
         addConquorMapNodes();
         addFarmFragmentsNodes();
+        Variables.T = new Timer(System.currentTimeMillis());
         return true;
     }
 
@@ -39,6 +41,7 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
         for (nodes.Node node : activeNode) {
             if (node.validate()) {
                 node.execute();
+                break;
             }
         }
         return Variables.getLoopDelay();
@@ -74,7 +77,7 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
 
     private void addConquorMapNodes() {
         conquorMap.add(new Dead());
-        conquorMap.add(new GrabBandages());
+        //conquorMap.add(new GrabBandages());
         conquorMap.add(new Combat());
         conquorMap.add(new AttackOblisk());
         conquorMap.add(new RunToOblisk());

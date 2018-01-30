@@ -12,6 +12,7 @@ public class Combat extends Node {
 
     @Override
     public boolean validate() {
+        System.out.println("Checking validation of Combat");
         return Players.getMyPlayer().isInCombat();
     }
 

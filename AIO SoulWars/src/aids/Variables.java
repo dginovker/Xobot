@@ -1,6 +1,7 @@
 package aids;
 
 import nodes.Node;
+import xobot.script.util.Timer;
 import xobot.script.wrappers.Tile;
 
 /**
@@ -16,6 +17,8 @@ public class Variables {
     private static Team currentTeam;
     private static String scriptState;
     private static String scriptNode;
+
+    public static Timer T;
 
     public static int getLoopDelay() {
         return loopDelay;

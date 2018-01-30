@@ -10,5 +10,6 @@ public class Paint {
         g.drawString("Script Node: " + Variables.getScriptNode(), 15, 260);
         g.drawString("Script state: " + Variables.getScriptState(), 15, 280);
         g.drawString("In team: " + Variables.getCurrentTeam(), 15, 300);
+        g.drawString(Variables.T.toElapsedString(), 15, 315);
     }
 }

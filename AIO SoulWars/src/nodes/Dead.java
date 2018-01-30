@@ -16,6 +16,8 @@ import static aids.Constants.*;
 public class Dead extends Node {
     @Override
     public boolean validate() {
+        System.out.println("Checking validation of Dead - currentCoords: " + Players.getMyPlayer().getLocation().toString());
+        System.out.println("Blue spawn: " + BLUE_SPAWN_AREA.contains(Players.getMyPlayer().getLocation()) + "Red spawn: " + RED_SPAWN_AREA.contains(Players.getMyPlayer().getLocation()) + "West Graveyard: " + WEST_GRAVEYARD_SPAWN.contains(Players.getMyPlayer().getLocation()) + "East Graveyard: " + EAST_GRAVEYARD_SPAWN.contains(Players.getMyPlayer().getLocation()));
         return BLUE_SPAWN_AREA.contains(Players.getMyPlayer().getLocation())
                 || RED_SPAWN_AREA.contains(Players.getMyPlayer().getLocation())
                 || WEST_GRAVEYARD_SPAWN.contains(Players.getMyPlayer().getLocation())

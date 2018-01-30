@@ -19,6 +19,7 @@ public class GrabBandages extends Node {
 
     @Override
     public boolean validate() {
+        System.out.println("Checking validation of GrabBandages");
         return Variables.getCurrentTeam() != null
                 && !Inventory.Contains(Constants.BANDAGES)
                 && !Players.getMyPlayer().isInCombat()
