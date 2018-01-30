@@ -26,6 +26,7 @@ public class Control extends ActiveScript implements MessageListener, PaintListe
 
     @Override
     public boolean onStart() {
+        System.out.println("==============\n\nStaring script!!\n\n==============");
         setLoopDelay(300);
         addJoinLobbyNodes();
         addConquorMapNodes();

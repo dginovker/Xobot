@@ -30,9 +30,9 @@ public class Constants {
     public static final int BANDAGE_STALL = 42024;
     public static final int PYREFIEND = 1636;
     public static final int SHARD_FRAGMENT = 14639;
-    public static final int OBLISK = -1;
+    public static final int OBLISK = 42010;
 
-    public static final int[] EXIT_BARRIER = {9247};
+    public static final int[] EXIT_BARRIER = {9247, 9252, 9251, 9250};
 
     public static final int BANDAGES = 4049;
 

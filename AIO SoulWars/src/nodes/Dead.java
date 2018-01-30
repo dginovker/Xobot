@@ -26,22 +26,18 @@ public class Dead extends Node {
 
     @Override
     public void execute() {
-        System.out.println("Start");
         Variables.setScriptNode("Handling Death");
 
         for (int i : EXIT_BARRIER)
         {
             GameObject barrier = GameObjects.getNearest(i);
-            System.out.println("I'm here");
             if (barrier != null)
             {
                 System.out.println("Pass barrier");
-                barrier.interact("Pass");//DOUBLE CHECK STRING
-                //barrier.interact(0);
+                barrier.interact("Pass");
+                Time.sleep(3000);
             }
         }
-        Time.sleep(1200);
-        System.out.println("??");
     }
 
     @Override
