@@ -19,11 +19,13 @@ import java.awt.event.ActionEvent;
  */
 public class Data extends JFrame {
 
-    public enum JoinType {
-        RANDOM, ALWAYS_RED, ALWAYS_BLUE
-    }
 
+
+    public enum JoinType {
+        RANDOM, ALWAYS_RED, ALWAYS_BLUE;
+    }
     private Controller controller;
+
     /////////////////////////////////////
     public static Team red, blue, preference, actual;
     public static String status;
@@ -52,7 +54,6 @@ public class Data extends JFrame {
                 new Color(175)
         );
     }
-
     public Data() {
         super("Soulwars");
         this.setLayout(new BorderLayout());
@@ -65,6 +66,15 @@ public class Data extends JFrame {
         this.pack();
         this.setLocationRelativeTo(getOwner());
         this.setVisible(true);
+    }
+
+    public static boolean inGame()
+    {
+        return (Data.actual = Team.autoDetect()) != null;
+    }
+
+    public static boolean isInSpawnOrGrave() {
+        return Data.actual.isInSpawn() || Data.actual.isInEastGrave() || Data.actual.isInWestGrave();
     }
 
     public static void updateTeam() {
