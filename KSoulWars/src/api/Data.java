@@ -19,14 +19,14 @@ import java.awt.event.ActionEvent;
  */
 public class Data extends JFrame {
 
-
+    public static final int GREEN_PORTAL_ID = 42031;
 
     public enum JoinType {
         RANDOM, ALWAYS_RED, ALWAYS_BLUE;
     }
     private Controller controller;
 
-    /////////////////////////////////////
+
     public static Team red, blue, preference, actual;
     public static String status;
     public static JoinType type;
@@ -54,6 +54,7 @@ public class Data extends JFrame {
                 new Color(175)
         );
     }
+
     public Data() {
         super("Soulwars");
         this.setLayout(new BorderLayout());

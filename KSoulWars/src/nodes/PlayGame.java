@@ -56,11 +56,7 @@ public class PlayGame extends Node {
                         //
                         /////////////////////////////////////////////////////
                         if (!Time.sleep(() -> Inventory.Contains(4049), 3000)) {
-                            try {
-                                Thread.sleep(500);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+                            Time.sleep(500);
                             execute(data);
                             return true;
                         }

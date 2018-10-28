@@ -1,14 +1,13 @@
 package nodes;
 
 import api.Data;
+import com.sun.org.apache.bcel.internal.generic.GOTO;
 import xobot.script.ActiveScript;
-import xobot.script.methods.GameObjects;
-import xobot.script.methods.Packets;
-import xobot.script.methods.Walking;
-import xobot.script.methods.Widgets;
+import xobot.script.methods.*;
 import xobot.script.util.Random;
 import xobot.script.util.Time;
 import xobot.script.wrappers.interactive.GameObject;
+import xobot.script.wrappers.interactive.Player;
 
 public class EnterGame extends Node {
     public EnterGame(ActiveScript aS) {
@@ -22,6 +21,29 @@ public class EnterGame extends Node {
 
     @Override
     public boolean execute(Data data) {
+        if (Data.type == Data.JoinType.RANDOM)
+        {
+            joinGreenPortal();
+        }
+        else
+        {
+            joinWantedPortal();
+        }
+
+        return true;
+    }
+
+    private void joinGreenPortal() {
+        GameObject greenPortal = GameObjects.getNearest(gameObject -> gameObject.getId() == Data.GREEN_PORTAL_ID && gameObject.isReachable());
+        if (greenPortal != null)
+        {
+            Data.status = "Entering Green Portal";
+            greenPortal.interact("Join-team");
+            Time.sleep(10000); //because I can't find a sleepUntil function
+        }
+    }
+
+    private void joinWantedPortal() {
         GameObject portal = GameObjects.getNearest(gameObject -> gameObject.getId() == Data.preference.getLobbyID() && gameObject.isReachable());
         if (portal != null) {
             Data.status = "Entering " + Data.preference.toString() + " portal";
@@ -43,7 +65,5 @@ public class EnterGame extends Node {
                 // we failed to enter....? (or it took longer than 8 seconds)
             }
         }
-
-        return true;
     }
 }

@@ -24,12 +24,7 @@ public class Attacker extends Activity {
     @Override
     public String perform() {
 
-        Player target = Players.getNearest(new Filter<Player>() {
-            @Override
-            public boolean accept(Player player) {
-                return player.getEquipment()[1] != Data.actual.getIdentifier() && !player.isDead() && player.isReachable();
-            }
-        });
+        Player target = Players.getNearest(player -> player.getEquipment()[1] != Data.actual.getIdentifier() && !player.isDead() && player.isReachable());
 
         if (target != null) {
             target.interact("attack");

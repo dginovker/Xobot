@@ -1,8 +1,6 @@
 import api.Data;
-import api.activities.Activity;
 
 import nodes.*;
-import xobot.bot.Context;
 import xobot.client.callback.listeners.MessageListener;
 import xobot.client.callback.listeners.PaintListener;
 import xobot.client.events.MessageEvent;
@@ -76,7 +74,7 @@ public class Soulwars extends ActiveScript implements PaintListener, MessageList
         g.drawString("Wins/Losses/Ties: " + wins + "/" + losses + "/" + ties, 200, 295);
         g.drawString("Zeal (p/h): " + zeal + " (" + Math.round(zeal * (3600.0 / (startTime.getElapsed() / 1000.0))) + ")", 420, 295);
 
-        g.drawString("Auto SoulWars V" + this.getClass().getAnnotation(Manifest.class).version() + ": " + Data.status, 20, 325);
+        g.drawString("KSoulWars V" + this.getClass().getAnnotation(Manifest.class).version() + ": " + Data.status, 20, 325);
         if (Data.actual != null) {
             g.drawString("Team: ", 420, 325);
             g.setColor(Data.actual.getColor());
