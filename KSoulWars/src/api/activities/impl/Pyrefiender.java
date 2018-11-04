@@ -5,7 +5,6 @@ import api.activities.Activity;
 import api.walking.Walker;
 import xobot.script.methods.*;
 import xobot.script.methods.tabs.Inventory;
-import xobot.script.util.Filter;
 import xobot.script.util.Time;
 import xobot.script.util.Timer;
 import xobot.script.wrappers.Tile;

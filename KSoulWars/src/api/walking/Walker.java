@@ -1,13 +1,13 @@
 package api.walking;
 
 
-import xobot.script.methods.Calculations;
-import xobot.script.methods.Players;
-import xobot.script.methods.Walking;
+import xobot.script.methods.*;
 import xobot.script.util.Random;
 import xobot.script.util.Time;
 import xobot.script.wrappers.Path;
 import xobot.script.wrappers.Tile;
+import xobot.script.wrappers.interactive.GameObject;
+import xobot.script.wrappers.interactive.NPC;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,12 @@ public class Walker {
             Tile furthest = path.getNextTile();
             if (furthest != null) {
                 Walking.walkTo(furthest);
+                Tile currentTile = Players.getMyPlayer().getLocation();
                 Time.sleep(() -> furthest.getDistance() < 12, 5000);
+                if (Players.getMyPlayer().getLocation().equals(currentTile)) //Then we haven't moved
+                {
+                    destroyBarricade();
+                }
             }
         }
     }
@@ -87,5 +92,15 @@ public class Walker {
         }
 
         return tiles.toArray(new Tile[tiles.size()]);
+    }
+
+    private static void destroyBarricade() {
+        boolean attacked = false;
+        for (NPC o : NPCs.getAll(o -> o.getId() == 1534 && o.getDistance() < 2))
+        {
+            attacked = true;
+            o.interact("attack");
+        }
+        System.out.println("Attacked: " + attacked);
     }
 }
