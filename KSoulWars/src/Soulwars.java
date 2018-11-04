@@ -34,7 +34,7 @@ public class Soulwars extends ActiveScript implements PaintListener, MessageList
     private final Color black = new Color(0, 0, 0, 127);
     public Data data;
 
-    private final Node[] array = new Node[] {new EnterGame(this), new WaitInLobby(this), new LeaveSpawnOrGrave(this), new PlayGame(this)};
+    private final Node[] array = new Node[] {new EnterGame(data), new WaitInLobby(data), new LeaveSpawnOrGrave(data), new PlayGame(data)};
 
     @Override
     public boolean onStart() {

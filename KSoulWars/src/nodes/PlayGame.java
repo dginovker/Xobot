@@ -3,7 +3,6 @@ package nodes;
 import api.Data;
 import api.activities.Activity;
 import xobot.bot.Context;
-import xobot.script.ActiveScript;
 import xobot.script.methods.Game;
 import xobot.script.methods.GameObjects;
 import xobot.script.methods.input.KeyBoard;
@@ -14,10 +13,8 @@ import xobot.script.wrappers.interactive.GameObject;
 import xobot.script.wrappers.interactive.Item;
 
 public class PlayGame extends Node {
-    private Data data;
-
-    public PlayGame(ActiveScript aS) {
-        super(aS);
+    public PlayGame(Data data) {
+        super(data);
     }
 
     @Override
@@ -65,7 +62,7 @@ public class PlayGame extends Node {
             } else {
                 Activity activity = data.getController().getActivity();
                 if (activity != null) {
-                    Data.status = "Performing " + activity.getClass().getSimpleName();
+                    Data.status = activity.getClass().getSimpleName();
                     Data.status = activity.perform();
                 }
             }
@@ -90,7 +87,7 @@ public class PlayGame extends Node {
         }
     }
 
-    public int getHealthPercent() {
+    private int getHealthPercent() {
         return 100 * Skills.CONSTITUTION.getCurrentLevel() / Skills.CONSTITUTION.getRealLevel();
     }
 }

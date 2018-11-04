@@ -1,15 +1,14 @@
 package nodes;
 
 import api.Data;
-import xobot.script.ActiveScript;
 import xobot.script.methods.*;
 import xobot.script.util.Random;
 import xobot.script.util.Time;
 import xobot.script.wrappers.interactive.GameObject;
 
 public class EnterGame extends Node {
-    public EnterGame(ActiveScript aS) {
-        super(aS);
+    public EnterGame(Data data) {
+        super(data);
     }
 
     @Override
@@ -60,6 +59,7 @@ public class EnterGame extends Node {
                     Walking.walkTo(Data.preference.getLobbyArea().getCentralTile().randomize(3, 3));
                 }
             } else {
+                Data.status = "Failed to enter..?" + getClass().getSimpleName();
                 // we failed to enter....? (or it took longer than 8 seconds)
             }
         }

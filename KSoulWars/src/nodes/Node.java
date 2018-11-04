@@ -1,14 +1,13 @@
 package nodes;
 
 import api.Data;
-import xobot.script.ActiveScript;
 
 public abstract class Node {
-    protected ActiveScript aS;
+    protected Data data;
 
-    public Node (ActiveScript aS)
+    Node(Data data)
     {
-        this.aS = aS;
+        this.data = data;
     }
 
     public abstract boolean activate();

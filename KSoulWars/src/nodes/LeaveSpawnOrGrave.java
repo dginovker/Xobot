@@ -1,14 +1,13 @@
 package nodes;
 
 import api.Data;
-import xobot.script.ActiveScript;
 import xobot.script.methods.GameObjects;
 import xobot.script.util.Time;
 import xobot.script.wrappers.interactive.GameObject;
 
 public class LeaveSpawnOrGrave extends Node {
-    public LeaveSpawnOrGrave(ActiveScript aS) {
-        super(aS);
+    public LeaveSpawnOrGrave(Data data) {
+        super(data);
     }
 
     @Override
@@ -25,7 +24,7 @@ public class LeaveSpawnOrGrave extends Node {
         } else if (Data.actual.isInWestGrave()) {
             leaveWestGrave();
         }
-        Data.status = "Leaving Spawn/Grave" + getClass().getSimpleName();
+        Data.status = getClass().getSimpleName();
 
         return true;
     }

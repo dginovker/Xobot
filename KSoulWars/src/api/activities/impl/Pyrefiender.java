@@ -28,12 +28,7 @@ public class Pyrefiender extends Activity {
     @Override
     public String perform() {
 
-        NPC target = NPCs.getNearest(new Filter<NPC>() {
-            @Override
-            public boolean accept(NPC npc) {
-                return npc.getId() == 1636 && npc.isReachable() && !npc.isDead() && !npc.isInCombat();
-            }
-        });
+        NPC target = NPCs.getNearest(npc -> npc.getId() == 1636 && npc.isReachable() && !npc.isDead() && !npc.isInCombat());
 
         if (target != null) {
             target.interact("attack");

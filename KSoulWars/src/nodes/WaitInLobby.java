@@ -1,11 +1,10 @@
 package nodes;
 
 import api.Data;
-import xobot.script.ActiveScript;
 
 public class WaitInLobby extends Node {
-    public WaitInLobby(ActiveScript aS) {
-        super(aS);
+    public WaitInLobby(Data data) {
+        super(data);
     }
 
     @Override
