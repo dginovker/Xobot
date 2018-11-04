@@ -22,7 +22,7 @@ public class PlayGame extends Node {
 
     @Override
     public boolean activate() {
-        return Data.inGame() && !Data.isInSpawnOrGrave() && !Data.actual.isInLobby();
+        return Data.actual != null && Data.inGame() && !Data.isInSpawnOrGrave() && !Data.actual.isInLobby();
     }
 
     @Override

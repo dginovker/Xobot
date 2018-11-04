@@ -13,7 +13,7 @@ public class LeaveSpawnOrGrave extends Node {
 
     @Override
     public boolean activate() {
-        return Data.isInSpawnOrGrave();
+        return Data.actual != null && Data.isInSpawnOrGrave();
     }
 
     @Override

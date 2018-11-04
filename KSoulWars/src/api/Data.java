@@ -71,6 +71,7 @@ public class Data extends JFrame {
 
     public static boolean inGame()
     {
+
         return (Data.actual = Team.autoDetect()) != null;
     }
 

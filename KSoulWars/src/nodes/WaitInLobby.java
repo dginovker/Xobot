@@ -10,7 +10,7 @@ public class WaitInLobby extends Node {
 
     @Override
     public boolean activate() {
-        return Data.actual.isInLobby();
+        return Data.actual != null && Data.actual.isInLobby();
     }
 
     @Override

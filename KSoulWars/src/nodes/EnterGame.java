@@ -1,13 +1,11 @@
 package nodes;
 
 import api.Data;
-import com.sun.org.apache.bcel.internal.generic.GOTO;
 import xobot.script.ActiveScript;
 import xobot.script.methods.*;
 import xobot.script.util.Random;
 import xobot.script.util.Time;
 import xobot.script.wrappers.interactive.GameObject;
-import xobot.script.wrappers.interactive.Player;
 
 public class EnterGame extends Node {
     public EnterGame(ActiveScript aS) {

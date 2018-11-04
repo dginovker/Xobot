@@ -25,7 +25,7 @@ import static api.Data.updateTeam;
  * Date: 10/16/2018.
  */
 
-@Manifest(authors = { "Kumalo", "Skattle" }, name = "Kumalo Soulwars", description = "Plays the SoulWars minigame", version = 1.1)
+@Manifest(authors = { "Kumalo", "Skattle" }, name = "Kumalo Soulwars", description = "Plays the SoulWars minigame [Updated!]", version = 1.2)
 
 public class Soulwars extends ActiveScript implements PaintListener, MessageListener {
 
@@ -34,7 +34,7 @@ public class Soulwars extends ActiveScript implements PaintListener, MessageList
     private final Color black = new Color(0, 0, 0, 127);
     public Data data;
 
-    private final Node[] array = new Node[] {new WaitInLobby(this), new LeaveSpawnOrGrave(this), new EnterGame(this), new PlayGame(this)};
+    private final Node[] array = new Node[] {new EnterGame(this), new WaitInLobby(this), new LeaveSpawnOrGrave(this), new PlayGame(this)};
 
     @Override
     public boolean onStart() {
@@ -108,7 +108,7 @@ public class Soulwars extends ActiveScript implements PaintListener, MessageList
                     Data.preference = Data.red;
                 }
             } else if (event.getMessage().contains("the green")) {
-                updateTeam();
+                Data.type = Data.JoinType.RANDOM;
             }
         }
     }
