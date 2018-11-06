@@ -25,7 +25,7 @@ import static api.Data.updateTeam;
  * Date: 10/16/2018.
  */
 
-@Manifest(authors = { "Kumalo", "Skattle" }, name = "Kumalo Soulwars", description = "Plays the SoulWars minigame [Updated!]", version = 1.3)
+@Manifest(authors = { "Kumalo", "Skattle" }, name = "Kumalo Soulwars", description = "Plays the SoulWars minigame [Updated!]", version = 1.4)
 
 public class Soulwars extends ActiveScript implements PaintListener, MessageListener {
 
